@@ -1,0 +1,234 @@
+[
+{
+    "aggs": {
+      "time_ranges": {
+        "range": {
+          "field": "month",
+          "ranges": [
+            {"from": "1", "to": "3"}
+          ]
+        },
+        "aggs":{
+          "geo_distance_by_location":{
+            "geo_distance": {
+              "field": "senLocation",
+              "origin": {
+                "lat": 45.366825,
+                "lon": 3.361225},
+                "unit":"km",
+                "ranges": [
+                  {"from": 0,"to": 1},
+                  {"from":2,"to": 3},
+                  {"from": 4}
+                  ]
+            }, 
+        "aggs": {
+              "temperature": {
+                "stats": {
+                  "field": "temperature"
+                }
+              },
+              "waterLevel": {
+                "stats": {
+                  "field": "waterLevel" 
+                }
+              },
+              "nodeBatteryVoltage": {
+                "stats": {
+                  "field": "nodeBatteryVoltage"
+                }
+              },
+              "conductivity": {
+                "stats": {
+                  "field": "conductivity"
+                }
+              },
+              "batteryVoltage": {
+                "stats": {
+                  "field": "batteryVoltage" 
+                }
+              },
+              "airHumidity": {
+                "stats": {
+                  "field": "airHumidity"
+                }
+              },
+              "atmosphericPressure": {
+                "stats": {
+                  "field": "atmosphericPressure"
+                }
+              },
+              "windSpeed": {
+                "stats": {
+                  "field": "windSpeed" 
+                }
+              },
+              "windDirection": {
+                "stats": {
+                  "field": "windDirection"
+                }
+              },  
+              "rainAmount": {
+                "stats": {
+                  "field": "rainAmount"
+                }  
+              }  
+            }
+          }    
+        } 
+      }  
+    }
+}
+, 
+{
+  "aggs": {
+    "time_ranges": {
+      "range": {
+        "field": "month",
+        "ranges": [
+          {"from": "1", "to": "3"}
+        ]
+      },
+      "aggs": {
+        "cat_device":{
+          "terms": {
+            "field": "deviceName.keyword", 
+            "size": 10
+          },
+      "aggs": {
+            "temperature": {
+              "stats": {
+                "field": "temperature"
+              }
+            },
+            "waterLevel": {
+              "stats": {
+                "field": "waterLevel" 
+              }
+            },
+            "nodeBatteryVoltage": {
+              "stats": {
+                "field": "nodeBatteryVoltage"
+              }
+            },
+            "conductivity": {
+              "stats": {
+                "field": "conductivity"
+              }
+            },
+            "batteryVoltage": {
+              "stats": {
+                "field": "batteryVoltage" 
+              }
+            },
+            "airHumidity": {
+              "stats": {
+                "field": "airHumidity"
+              }
+            },
+            "atmosphericPressure": {
+              "stats": {
+                "field": "atmosphericPressure"
+              }
+            },
+            "windSpeed": {
+              "stats": {
+                "field": "windSpeed" 
+              }
+            },
+            "windDirection": {
+              "stats": {
+                "field": "windDirection"
+              }
+            },  
+            "rainAmount": {
+              "stats": {
+                "field": "rainAmount"
+              }  
+            }  
+          }
+        }    
+      } 
+    }  
+  }
+}
+,
+{
+  "aggs":{
+     "geo_distance_by_location":{
+      "geo_distance": {
+        "field": "senLocation",
+        "origin": {
+          "lat": 45.366825,
+          "lon": 3.361225},
+        "unit":"km",
+        "ranges": [
+          {"from": 0,"to": 1},
+          {"from":2,"to": 3},
+          {"from": 4}
+          ]
+      },
+      "aggs": {
+        "cat_device":{
+          "terms": {
+            "field": "deviceName.keyword", 
+            "size": 10
+          },
+      "aggs": {
+            "temperature": {
+              "stats": {
+                "field": "temperature"
+              }
+            },
+            "waterLevel": {
+              "stats": {
+                "field": "waterLevel" 
+              }
+            },
+            "nodeBatteryVoltage": {
+              "stats": {
+                "field": "nodeBatteryVoltage"
+              }
+            },
+            "conductivity": {
+              "stats": {
+                "field": "conductivity"
+              }
+            },
+            "batteryVoltage": {
+              "stats": {
+                "field": "batteryVoltage" 
+              }
+            },
+            "airHumidity": {
+              "stats": {
+                "field": "airHumidity"
+              }
+            },
+            "atmosphericPressure": {
+              "stats": {
+                "field": "atmosphericPressure"
+              }
+            },
+            "windSpeed": {
+              "stats": {
+                "field": "windSpeed" 
+              }
+            },
+            "windDirection": {
+              "stats": {
+                "field": "windDirection"
+              }
+            },  
+            "rainAmount": {
+              "stats": {
+                "field": "rainAmount"
+              }  
+            }  
+          }
+        }    
+      } 
+    }  
+  }
+}   
+]
